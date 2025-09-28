@@ -11,6 +11,14 @@ Aplicativo web mobile "Onde está Wally" construído com HTML/CSS/JS puro. O foc
 
 > ⚠️ Safari iOS exige HTTPS para acessar a câmera. Utilize `npx http-server --ssl` ou publique via localhost com certificado.
 
+## Publicação no GitHub Pages
+
+- Cada push ou pull request direcionado para `main` executa a pipeline **Deploy WALLY Finder to GitHub Pages** (`.github/workflows/static.yml`).
+- O job `build` compila rapidamente os utilitários Python (`python -m compileall scripts_offline`) para garantir que os scripts offline continuem válidos antes de preparar o pacote estático.
+- Os arquivos públicos são reunidos em `dist/` via `rsync`, com criação de `.nojekyll` para liberar o service worker e demais assets sem interferência do Jekyll.
+- Nos pushes para `main`, o job `deploy` publica o conteúdo preparado na aba **Pages** do repositório utilizando `actions/deploy-pages@v4`.
+- Para validar manualmente, acione o workflow por **Run workflow** ou use `workflow_dispatch` via Actions.
+
 ## Estrutura principal
 
 - `index.html` – Tela principal com vídeo, HUD e bottom sheet de achados.
