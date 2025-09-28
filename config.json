@@ -1,0 +1,50 @@
+{
+  "frameInterval": 6,
+  "inputSize": 160,
+  "deadlineMs": 30,
+  "maxRois": 12,
+  "temporalWindow": 4,
+  "temporalConfirmations": 2,
+  "characters": [
+    "wally",
+    "wenda",
+    "odlaw",
+    "mago",
+    "woof"
+  ],
+  "colorRules": {
+    "wally": {
+      "positive": "red_white_stripes",
+      "negative": ["orange", "magenta", "yellow_brown"]
+    },
+    "wenda": {
+      "positive": "red_white_stripes",
+      "negative": ["orange", "magenta", "yellow_brown"]
+    },
+    "odlaw": {
+      "positive": "yellow_black_stripes",
+      "negative": ["orange", "magenta", "yellow_brown"]
+    },
+    "mago": {
+      "positive": "red_white_beard",
+      "negative": ["orange", "magenta"]
+    },
+    "woof": {
+      "positive": "red_white_spot",
+      "negative": ["orange", "magenta"]
+    }
+  },
+  "ort": {
+    "wasmPath": "libs/ort-wasm-simd-threaded.mjs",
+    "fallbackWasmPath": "libs/ort-wasm-simd.min.js"
+  },
+  "tflite": {
+    "wasmPath": "libs/tflite_wasm.js"
+  },
+  "model": {
+    "onnx": "models/nanodet_int8.onnx",
+    "tflite": "tflite/nanodet_int8.tflite",
+    "inputName": "images",
+    "outputName": "scores"
+  }
+}

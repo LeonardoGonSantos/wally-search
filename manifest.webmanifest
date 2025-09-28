@@ -1,0 +1,9 @@
+{
+  "name": "Onde está Wally Finder",
+  "short_name": "WallyFinder",
+  "display": "standalone",
+  "start_url": "./index.html",
+  "background_color": "#0E0E10",
+  "theme_color": "#151518",
+  "icons": []
+}

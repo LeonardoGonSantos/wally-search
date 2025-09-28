@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Preset Builder • WALLY//FINDER</title>
+  <link rel="stylesheet" href="preset-builder.css" />
+</head>
+<body>
+  <header class="pb-top-bar">
+    <a href="index.html" class="back">← Voltar</a>
+    <h1>Preset Builder</h1>
+    <p class="pb-subtitle">Organize amostras com clareza e mantenha bordas leves.</p>
+  </header>
+
+  <main class="pb-grid">
+    <section class="pb-capture">
+      <video id="pbVideo" autoplay playsinline muted></video>
+      <canvas id="pbCanvas"></canvas>
+      <input type="file" accept="image/*" id="pbImport" hidden />
+      <div class="pb-actions">
+        <button id="pbCapture" class="cta">Capturar foto</button>
+        <button id="pbImportButton" class="ghost">Importar imagem</button>
+      </div>
+      <p class="microcopy">
+        Oriente: capture partes com boa iluminação, ângulos variados e inclua exemplos difíceis.
+        Lembre de cobrir negativos com cores parecidas.
+      </p>
+    </section>
+
+    <section class="pb-sidebar">
+      <div class="field">
+        <label for="pbCharacter">Personagem</label>
+        <div class="chip-grid" id="pbCharacters"></div>
+      </div>
+      <div class="field">
+        <label for="pbPart">Parte</label>
+        <div class="chip-grid" id="pbParts"></div>
+      </div>
+      <button id="pbSave" class="cta" disabled>Salvar amostra</button>
+      <button id="pbExport" class="ghost">Exportar .zip</button>
+      <button id="pbClear" class="ghost danger">Limpar tudo</button>
+      <p class="microcopy legal">Use apenas imagens que você tem permissão para usar. O conteúdo fica no seu dispositivo.</p>
+    </section>
+
+    <section class="pb-gallery">
+      <h2>Galeria local</h2>
+      <div id="pbGallery" class="gallery"></div>
+    </section>
+  </main>
+
+  <template id="pbItemTemplate">
+    <article class="gallery-item">
+      <img alt="Amostra" />
+      <div class="meta">
+        <strong data-field="label"></strong>
+        <span data-field="timestamp"></span>
+      </div>
+      <button data-action="delete">Excluir</button>
+    </article>
+  </template>
+
+  <script type="module" src="preset-builder.js"></script>
+</body>
+</html>

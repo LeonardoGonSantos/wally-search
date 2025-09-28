@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "embeddingSize": 128,
+  "banks": [
+    { "character": "wally", "part": "hat", "file": "wally_hat.i8.bin", "count": 0 },
+    { "character": "wally", "part": "glasses", "file": "wally_glasses.i8.bin", "count": 0 },
+    { "character": "odlaw", "part": "torso_stripes", "file": "odlaw_torso_stripes.i8.bin", "count": 0 }
+  ],
+  "color": {
+    "red_white_stripes": {
+      "redRatio": [0.25, 0.6],
+      "whiteRatio": [0.15, 0.5]
+    },
+    "yellow_black_stripes": {
+      "yellowRatio": [0.25, 0.6],
+      "blackRatio": [0.15, 0.5]
+    }
+  }
+}

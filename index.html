@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Onde está Wally? Scanner</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="top-bar" role="banner">
+      <div class="wordmark" aria-label="Onde está Wally Scanner">WALLY FINDER</div>
+      <button class="icon-button" id="openSettings" aria-haspopup="true" aria-controls="settingsSheet" aria-label="Abrir configurações">⚙</button>
+    </header>
+
+    <main class="viewer" role="main">
+      <video id="camera" autoplay playsinline muted></video>
+      <canvas id="overlay" aria-hidden="true"></canvas>
+      <div class="hud" aria-live="polite">
+        <div class="hud-line">IA <span id="hud-fps">--</span> fps • infer <span id="hud-infer">--</span> ms • drops <span id="hud-drops">0</span></div>
+        <div class="hud-line">N=<span id="hud-n">--</span> • ROIs <span id="hud-rois">--</span></div>
+      </div>
+      <div id="toast" role="status" aria-live="assertive"></div>
+    </main>
+
+    <nav class="bottom-bar" role="navigation">
+      <div class="chip-row" id="characterChips" aria-label="Personagens monitorados"></div>
+      <button class="cta" id="revealButton" disabled>Revelar achado</button>
+    </nav>
+
+    <aside class="bottom-sheet" id="findingsSheet" aria-label="Achados recentes" aria-hidden="true">
+      <div class="sheet-handle" role="presentation"></div>
+      <header class="sheet-header">
+        <h2>Achados</h2>
+        <button class="text-button" id="clearFindings">Limpar</button>
+      </header>
+      <div class="sheet-content" id="findingsList" role="list"></div>
+    </aside>
+
+    <dialog id="settingsSheet" class="sheet-dialog" aria-label="Configurações">
+      <form method="dialog">
+        <header>
+          <h3>Configurações rápidas</h3>
+        </header>
+        <section>
+          <label class="field">
+            <span>Processar 1 a cada N frames</span>
+            <input type="number" min="1" max="12" step="1" id="fieldN" />
+          </label>
+          <label class="field">
+            <span>Mostrar painel de debug</span>
+            <input type="checkbox" id="toggleDebug" />
+          </label>
+          <label class="field">
+            <span>Ativar vibração ao encontrar</span>
+            <input type="checkbox" id="toggleVibration" checked />
+          </label>
+          <p class="microcopy">Modo Preset Builder disponível em <a href="preset-builder.html">preset-builder.html</a>.</p>
+        </section>
+        <footer>
+          <button value="cancel" class="text-button">Fechar</button>
+        </footer>
+      </form>
+    </dialog>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
